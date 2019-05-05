@@ -8,7 +8,7 @@ f = tempfile.NamedTemporaryFile(delete=False)
 f.close()
 
 # call internal Mac screenshot tool
-os.system('screencapture -i ' + f.name)
+os.system('screencapture -i -x ' + f.name)
 
 # only parse image if screenshot was actually taken
 if (os.stat(f.name).st_size > 0):
