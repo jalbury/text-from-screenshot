@@ -1,0 +1,22 @@
+import os
+from PIL import Image
+import tempfile
+import pytesseract
+
+# create temp file to store screenshot
+f = tempfile.NamedTemporaryFile(delete=False)
+f.close()
+
+# call internal Mac screenshot tool
+os.system('screencapture -i ' + f.name)
+
+# only parse image if screenshot was actually taken
+if (os.stat(f.name).st_size > 0):
+    # use pytesseract to parse text in image
+    text = pytesseract.image_to_string(Image.open(f.name), lang='eng')
+
+    # copy text to clipboard
+    os.system('echo "' + text + '" | pbcopy')
+
+    # clean-up: delete temp file
+    os.unlink(f.name)
