@@ -20,5 +20,5 @@ if (os.stat(f.name).st_size > 0):
     # copy text to clipboard
     os.system('echo "' + text + '" | pbcopy')
 
-    # clean-up: delete temp file
-    os.unlink(f.name)
+# clean-up: delete temp file
+os.unlink(f.name)
