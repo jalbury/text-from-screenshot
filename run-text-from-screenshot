@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-/usr/local/bin/python3 ~/projects/text-from-screenshot/text-from-screenshot.py
